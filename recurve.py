@@ -33,7 +33,7 @@ def recursive_get_feature_ids(id_field_name, json_blob):
                 yield feat_id
     elif type(json_blob) == dict:
         for key, value in json_blob.items():
-            if key == 'feature_id':
+            if key == id_field_name:
                 yield value
             elif type(value) in (dict, list):
                 for feat_id in recursive_get_feature_ids(id_field_name, value):
